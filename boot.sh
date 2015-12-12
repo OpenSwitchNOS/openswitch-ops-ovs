@@ -171,6 +171,7 @@ make -C $SANDBOX/ovs ofproto/ipfix-entities.def \
         lib/vswitch-idl.ovsidl \
         lib/libopenvswitch.la \
         lib/libsflow.la \
-        ofproto/libofproto.la
+        ofproto/libofproto.la \
+        ovsdb/ovsdb-server
 
 autoreconf --install --force
