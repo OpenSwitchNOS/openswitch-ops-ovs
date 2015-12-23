@@ -12,38 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-project (ops-ovs)
 set (LIB_DIR lib)
 set (OFPROTO_DIR ofproto)
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -I$(OVS_INCLUDE) -std=gnu99 -Werror")
-
-###
-### Define sources
-###
-
-set (SOURCES_LIB ${LIB_DIR}/ops-netdev.h ${LIB_DIR}/ops-netdev.c ${LIB_DIR}/ops-netdev-provider.h)
-
-###
-### Define and locate needed libraries and includes
-###
-#include(FindPkgConfig)
-#pkg_check_modules(OVSCOMMON REQUIRED libopenvswitch)
-
-
-###include_directories(${CMAKE_SOURCE_DIR} ${OVSCOMMON_INCLUDE_DIRS})
-
-###
-### Create our library
-###
-
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -I$(OVS_INCLUDE) -std=gnu99 -Werror")
+set (SOURCES_LIB ${LIB_DIR}/ops-netdev.h
+                 ${LIB_DIR}/ops-netdev.c
+                 ${LIB_DIR}/ops-netdev-provider.h)
 add_library (opsopenvswitch ${SOURCES_LIB})
-
-#target_link_libraries (opsopenvswitch ${OVSCOMMON_LIBRARIES})
-
-###
-### Installation
-###
-#install(TARGETS opsopenvswitch
-#        LIBRARY DESTINATION lib/openvswitch/plugins
-#    )
+install (TARGETS opsopenvswitch ARCHIVE DESTINATION lib)
