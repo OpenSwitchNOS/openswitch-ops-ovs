@@ -48,7 +48,7 @@
 #include "shash.h"
 #include "openvswitch/vlog.h"
 
-VLOG_DEFINE_THIS_MODULE(netdev);
+VLOG_DEFINE_THIS_MODULE(ops_netdev);
 
 /* Contains alls netdevs, even those that are "netdev_remove"d, but are
  * still not unrefed and freed. Allows netdev_open to resurrect those netdevs
